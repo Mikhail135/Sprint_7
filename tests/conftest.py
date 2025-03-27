@@ -1,6 +1,5 @@
 import pytest
 from base.courier import Courier
-import allure
 
 @pytest.fixture
 def new_courier():
