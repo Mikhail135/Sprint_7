@@ -11,8 +11,15 @@ class Courier:
 
     @staticmethod
     @allure.step("Создание курьера")
-    def create(login, password, first_name):
-        payload = {"login": login, "password": password, "firstName": first_name}
+    def create(login=None, password=None, first_name=None):
+        payload = {}
+        if login is not None:
+            payload["login"] = login
+        if password is not None:
+            payload["password"] = password
+        if first_name is not None:
+            payload["firstName"] = first_name
+
         return requests.post(f"{data.BASE_URL}/courier", json=payload)
 
     @staticmethod
